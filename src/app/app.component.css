@@ -56,19 +56,52 @@
 }
 
 .fichaBody{
-    justify-content: center;
+
     margin: auto;
     width: 95%;
 }
 
 label{
     margin: auto;
+
 }
 
 .row{
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 0.5rem;
+}
+
+.grid2{
+    display: grid;
+    grid-template-columns: 50px 1fr 50px 1fr;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 0.5rem;
+}
+
+.grid3{
+    display: grid;
+    grid-template-columns: 50px 5fr 50px 1fr 40px 1fr;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 0.5rem;
+}
+
+.grid4{
+    display: grid;
+    grid-template-columns: 50px 5fr 20px 1fr 60px 1fr 60px 1fr;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 0.5rem;
 }
 
 .row label{
@@ -79,15 +112,15 @@ label{
     margin-right: 20px;
 }
 
-.inputCliente{
-    width: 60%;
+/* .inputCliente{
+    width: 59%;
 }
 
 .inputRut{
     width: 20%;
-}
+} */
 
-.inputTel{
+/* .inputTel{
     width: 70%;
 }
 
@@ -109,7 +142,7 @@ label{
 
 .inputDiagnostico{
     width: 83%;
-}
+} */
 
 .checkbox{
     width: 2rem;
@@ -134,4 +167,29 @@ input{
 .fechaEntrega{
     display: flex;
     flex-direction: column;
+}
+
+.grid{
+    display: grid;
+}
+
+@media screen and (max-width: 720px){
+    .ficha{
+        width: 100%;
+    }
+
+    .header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid .grid2 .grid3 .grid4{
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .pagos{
+        flex-direction: column;
+    }
 }
