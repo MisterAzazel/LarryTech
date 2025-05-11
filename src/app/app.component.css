@@ -1,3 +1,10 @@
+body{
+    border: 1px black solid;
+    width: 60%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
 .header{
     display: flex;
     flex-direction: row;
@@ -6,7 +13,7 @@
 }
 
 .header1{
-    width: 30%;
+    width: 45%;
     text-align: center;
     margin-left: 20px;
 }
@@ -17,15 +24,11 @@
 }
 
 .header2{
-    width: 30%;
+    width: 50%;
     text-align: center;
 }
 
-body{
-    border: 1px black solid;
-    width: 90%;
-    margin: auto;
-}
+
 
 .informacion p{
     margin: 1px;
@@ -48,7 +51,6 @@ body{
 }
 
 .ficha{
-
     justify-content: center;
     margin: auto;
     width: 95%;
@@ -72,10 +74,32 @@ body{
     width: 60%;
 }
 
+.inputRut{
+    width: 20%;
+}
+
 .inputTel{
     width: 70%;
 }
 
+.inputMarca{
+    width: 15%;
+}
+
+.inputModelo{
+    width: 30%;
+}
+
+.inputSerie{
+    width: 30%;
+}
+
 input{
     height: 30px;
+}
+
+.pagos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
