@@ -1,12 +1,15 @@
 {
   "name": "larry-tech",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href ./",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "electron": "npm run build && electron .",
+    "dist": "npm run build && electron-builder"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +30,8 @@
     "@angular/cli": "~15.2.5",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
+    "electron": "^36.2.0",
+    "electron-builder": "^26.0.12",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -34,5 +39,26 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.9.4"
+  },
+  "build": {
+  "appId": "com.tuempresa.tuapp",
+  "productName": "LarryTech",
+  "files": [
+    "dist/larry-tech/**/*",
+    "main.js",
+    "package.json"
+  ],
+  "directories": {
+    "buildResources": "assets"
+  },
+  "extraResources": [
+    {
+      "from": "dist/larry-tech/",
+      "to": "dist/"
+    }
+  ],
+  "win": {
+    "target": "nsis"
   }
+}
 }

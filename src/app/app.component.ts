@@ -8,5 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AppComponent {
   title = 'LarryTech';
-  fecha = new Date()
+  numeroOrden = '';
+  fechaRecepcion = '';
+
 }

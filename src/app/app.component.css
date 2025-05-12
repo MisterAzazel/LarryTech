@@ -1,6 +1,6 @@
 .ficha{
     border: 1px black solid;
-    width: 60%;
+    width: 80%;
     margin: auto;
     box-sizing: border-box;
 }
@@ -18,8 +18,20 @@
     margin-left: 20px;
 }
 
+.orden{
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    text-align: center;
+    align-items: center;
+}
+
+.orden input{
+    width: 60%;
+}
+
 .logo{
-    width: 100%;
+    max-width: 100%;
     height: 150px;
 }
 
@@ -90,7 +102,7 @@ label{
 
 .grid3{
     display: grid;
-    grid-template-columns: 50px 5fr 50px 1fr 40px 1fr;
+    grid-template-columns: 50px 2fr 50px 1fr 40px 1fr;
     align-items: center;
     margin-bottom: 15px;
     gap: 0.5rem;
@@ -156,7 +168,8 @@ input{
 .pagos{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20%;
     padding-bottom: 20px;
 }
 
@@ -173,7 +186,14 @@ input{
     display: grid;
 }
 
-@media screen and (max-width: 720px){
+@media screen and (max-width: 1000px){
+
+.grid3{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+}
+
+@media screen and (max-width: 768px){
     .ficha{
         width: 100%;
     }
@@ -184,12 +204,28 @@ input{
         align-items: center;
     }
 
-    .grid .grid2 .grid3 .grid4{
-        display: grid;
-        grid-template-columns: auto;
+    .header1{
+        width: 100%;
     }
+
+    .header2{
+        width: 100%;
+    }
+
+    .grid, .grid2, .grid3, .grid4{
+        display: grid;
+        grid-template-columns: 0.2fr 1fr;
+        width: 100%;
+    }
+
 
     .pagos{
         flex-direction: column;
+        align-items: center;
+    }
+
+
+    .pagoFecha{
+        justify-items: center;
     }
 }
