@@ -6,165 +6,277 @@
   <title>LarryTech</title>
 </head>
 <body>
-  <div class="ficha">
-    <div class="header">
-      <div class="header1">
-        <img src="assets/LarryTechLogo.png" class="logo" alt="">
+  <form action="" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="ficha">
+      <div class="header">
+        <div class="header1">
+          <img src="assets/LarryTechLogo.png" class="logo" alt="">
 
-        <div class="informacion">
-          <h3>REPARACION NOTEBOOKS Y PC</h3>
-          <p>Venta y suministros, actualización.</p>
-          <p>Cambio de hardware, mantenimiento.</p>
-          <p>Respaldo archivos, formateos, antivirus</p>
-        </div>
-
-
-        <div class="ubicacion">
-          <p>SAN DIEGO 344 - SANTIAGO CENTRO</p>
-          <p>PLACER 663 - PASILLO 1- LOCAL 23 - SANTIAGO</p>
-        </div>
-
-        <div class="contacto">
-          <p>Larry Tejada Raymi</p>
-
-          <div class="telefono">
-            <img src="assets/WhatsApp_icon.png" alt="">
-            <p>+56 9 6142 7290</p>
+          <div class="informacion">
+            <h3>REPARACION NOTEBOOKS Y PC</h3>
+            <p>Venta y suministros, actualización.</p>
+            <p>Cambio de hardware, mantenimiento.</p>
+            <p>Respaldo archivos, formateos, antivirus</p>
           </div>
 
-        </div>
 
+          <div class="ubicacion">
+            <p>SAN DIEGO 344 - SANTIAGO CENTRO</p>
+            <p>PLACER 663 - PASILLO 1- LOCAL 23 - SANTIAGO</p>
+          </div>
 
-      </div>
-      <div class="header2">
-        <h1>ORDEN SERVICIO TÉCNICO</h1>
+          <div class="contacto">
+            <p>Larry Tejada Raymi</p>
 
-        <br>
-        <br>
-
-        <div class="orden">
-          <label for="">N° Orden</label>
-          <input type="number">
-        </div>
-
-
-        <br>
-        <br>
-
-        <div class="fechaRecepcion">
-          <label>FECHA DE RECEPCIÓN</label>
-          <input type="date" class="inputDate">
-        </div>
-
-      </div>
-    </div>
-
-    <br>
-
-    <div class="fichaBody">
-
-      <div class="grid2">
-        <label>Cliente:</label>
-        <input type="text" class="inputCliente">
-        <label>R.U.T:</label>
-        <input type="text" class="inputRut">
-      </div>
-
-      <div class="grid4">
-        <label>Tel.:</label>
-        <input type="text" class="inputTel">
-        <label>PC:</label>
-        <input type="checkbox" class="checkbox">
-        <label>Notebook:</label>
-        <input type="checkbox" class="checkbox">
-        <label>Impresora:</label>
-        <input type="checkbox" class="checkbox">
-      </div>
-
-      <div class="grid3">
-        <label>Marca:</label>
-        <input type="text" class="inputMarca">
-        <label>Modelo:</label>
-        <input type="text" class="inputModelo">
-        <label>N° de Serie:</label>
-        <input type="text" class="inputSerie">
-      </div>
-
-      <div class="grid">
-        <label>Desperfeccion según cliente:</label>
-        <input type="text" class="inputDesperfeccion">
-      </div>
-
-      <div class="grid">
-        <label>Diagnóstico:</label>
-        <input type="text" class="inputDiagnostico">
-      </div>
-
-      <div class="informacionServicio">
-        <p>El Servicio Técnico informa que a constar de los 60 días posterior
-          a la fecha de entrega pactada, se comienza a cobrar un costo adicional por bodegaje de $1.000 diarios.
-          <br>
-          El Servicio Técnico no se hace responsable por equipos no retirados posterior a 1 año de la fecha de entrega pactada.
-          <br>
-          La fecha de entrega será siempre no superior a 15 dias hábiles.
-        </p>
-      </div>
-
-      <div class="claveMarcas">
-
-      </div>
-
-      <hr>
-
-      <div class="pagos">
-
-        <div class="modoPago">
-          <h4>Modo de Pago:</h4>
-
-          <div class="modoPagoCheckbox">
-            <div class="grid2 grid2mobile">
-              <label>Red Compra</label>
-              <input type="checkbox" class="checkbox">
-              <label>Master Card</label>
-              <input type="checkbox" class="checkbox">
+            <div class="telefono">
+              <img src="assets/WhatsApp_icon.png" alt="">
+              <p>+56 9 6142 7290</p>
             </div>
 
-            <div class="grid2 grid2mobile">
-              <label>Visa</label>
-              <input type="checkbox" class="checkbox">
-              <label>Efectivo</label>
-              <input type="checkbox" class="checkbox">
-            </div>
-          </div>
-        </div>
-
-        <div class="pagoFecha">
-
-          <div class="row">
-            <label>Abono:</label>
-            <input type="number">
           </div>
 
-          <div class="row">
-            <label>Saldo:</label>
-            <input type="number">
-          </div>
-
-          <div class="row">
-            <label>Valor Total:</label>
-            <input type="number">
-          </div>
-
-          <div class="fechaEntrega">
-            <label>FECHA DE ENTREGA</label>
-            <input type="date">
-          </div>
 
         </div>
+        <div class="header2">
+          <h1>ORDEN SERVICIO TÉCNICO</h1>
 
+          <br>
+          <br>
+
+          <div class="orden">
+            <label for="">N° Orden</label>
+            <input type="number"
+            formControlName="numeroOrden"
+            [class.invalid]="formulario.get('numeroOrden')?.invalid
+            && (formulario.get('numeroOrden')?.dirty
+            || formulario.get('numeroOrden')?.touched)"
+            [class.valid]="formulario.get('numeroOrden')?.valid
+            && (formulario.get('numeroOrden')?.dirty
+            || formulario.get('numeroOrden')?.touched)">
+          </div>
+
+
+          <br>
+          <br>
+
+          <div class="fechaRecepcion">
+            <label>FECHA DE RECEPCIÓN</label>
+            <input type="date"
+            class="inputDate"
+            formControlName="fechaRecepcion"
+            [class.invalid]="formulario.get('fechaRecepcion')?.invalid
+            && (formulario.get('fechaRecepcion')?.dirty
+            || formulario.get('fechaRecepcion')?.touched)"
+            [class.valid]="formulario.get('fechaRecepcion')?.valid
+            && (formulario.get('fechaRecepcion')?.dirty
+            || formulario.get('fechaRecepcion')?.touched)">
+          </div>
+
+        </div>
       </div>
 
+      <br>
+
+      <div class="fichaBody">
+
+        <div class="grid2">
+          <label>Cliente:</label>
+          <input type="text"
+            class="inputCliente"
+            formControlName="cliente"
+            [class.invalid]="formulario.get('cliente')?.invalid
+            && (formulario.get('cliente')?.dirty
+            || formulario.get('cliente')?.touched)"
+            [class.valid]="formulario.get('cliente')?.valid
+            && (formulario.get('cliente')?.dirty
+            || formulario.get('cliente')?.touched)">
+          <!-- <small *ngIf="formulario.get('cliente')?.errors?.['required']">Este campo es obligatorio</small> -->
+          <label>R.U.T:</label>
+          <input type="text"
+            class="inputRut"
+            formControlName="rut"
+            [class.invalid]="formulario.get('rut')?.invalid
+            && (formulario.get('rut')?.dirty
+            || formulario.get('rut')?.touched)"
+            [class.valid]="formulario.get('rut')?.valid
+            && (formulario.get('rut')?.dirty
+            || formulario.get('rut')?.touched)">
+        </div>
+
+        <div class="grid4">
+          <label>Tel.:</label>
+          <input type="text"
+            class="inputTel"
+            formControlName="telefono"
+            [class.invalid]="formulario.get('telefono')?.invalid
+            && (formulario.get('telefono')?.dirty
+            || formulario.get('telefono')?.touched)"
+            [class.valid]="formulario.get('telefono')?.valid
+            && (formulario.get('telefono')?.dirty
+            || formulario.get('telefono')?.touched)">
+          <label>PC:</label>
+          <input type="checkbox" class="checkbox" value="PC" formControlName="equipo">
+          <label>Notebook:</label>
+          <input type="checkbox" class="checkbox" value="Notebook" formControlName="equipo">
+          <label>Impresora:</label>
+          <input type="checkbox" class="checkbox" value="Impresora" formControlName="equipo">
+        </div>
+
+        <div class="grid3">
+          <label>Marca:</label>
+          <input type="text"
+            class="inputMarca"
+            formControlName="marca"
+            [class.invalid]="formulario.get('marca')?.invalid
+            && (formulario.get('marca')?.dirty
+            || formulario.get('marca')?.touched)"
+            [class.valid]="formulario.get('marca')?.valid
+            && (formulario.get('marca')?.dirty
+            || formulario.get('marca')?.touched)">
+          <label>Modelo:</label>
+          <input type="text"
+            class="inputModelo"
+            formControlName="modelo"
+            [class.invalid]="formulario.get('modelo')?.invalid
+            && (formulario.get('modelo')?.dirty
+            || formulario.get('modelo')?.touched)"
+            [class.valid]="formulario.get('modelo')?.valid
+            && (formulario.get('modelo')?.dirty
+            || formulario.get('modelo')?.touched)">
+          <label>N° de Serie:</label>
+          <input type="number"
+            class="inputSerie"
+            formControlName="numeroSerie"
+            [class.invalid]="formulario.get('numeroSerie')?.invalid
+            && (formulario.get('numeroSerie')?.dirty
+            || formulario.get('numeroSerie')?.touched)"
+            [class.valid]="formulario.get('numeroSerie')?.valid
+            && (formulario.get('numeroSerie')?.dirty
+            || formulario.get('numeroSerie')?.touched)">
+        </div>
+
+        <div class="grid">
+          <label>Desperfeccion según cliente:</label>
+          <input type="text"
+            class="inputDesperfeccion"
+            formControlName="desperfeccion"
+            [class.invalid]="formulario.get('desperfeccion')?.invalid
+            && (formulario.get('desperfeccion')?.dirty
+            || formulario.get('desperfeccion')?.touched)"
+            [class.valid]="formulario.get('desperfeccion')?.valid
+            && (formulario.get('desperfeccion')?.dirty
+            || formulario.get('desperfeccion')?.touched)">
+        </div>
+
+        <div class="grid">
+          <label>Diagnóstico:</label>
+          <input type="text"
+            class="inputDiagnostico"
+            formControlName="diagnostico"
+            [class.invalid]="formulario.get('diagnostico')?.invalid
+            && (formulario.get('diagnostico')?.dirty
+            || formulario.get('diagnostico')?.touched)"
+            [class.valid]="formulario.get('diagnostico')?.valid
+            && (formulario.get('diagnostico')?.dirty
+            || formulario.get('diagnostico')?.touched)">
+        </div>
+
+        <div class="informacionServicio">
+          <p>El Servicio Técnico informa que a constar de los 60 días posterior
+            a la fecha de entrega pactada, se comienza a cobrar un costo adicional por bodegaje de $1.000 diarios.
+            <br>
+            El Servicio Técnico no se hace responsable por equipos no retirados posterior a 1 año de la fecha de entrega pactada.
+            <br>
+            La fecha de entrega será siempre no superior a 15 dias hábiles.
+          </p>
+        </div>
+
+        <div class="claveMarcas">
+
+        </div>
+
+        <hr>
+
+        <div class="pagos">
+
+          <div class="modoPago">
+            <h4>Modo de Pago:</h4>
+
+            <div class="modoPagoCheckbox">
+              <div class="grid2 grid2mobile">
+                <label>Red Compra</label>
+                <input type="checkbox" class="checkbox" formControlName="modoPago">
+                <label>Master Card</label>
+                <input type="checkbox" class="checkbox" formControlName="modoPago">
+              </div>
+
+              <div class="grid2 grid2mobile">
+                <label>Visa</label>
+                <input type="checkbox" class="checkbox" formControlName="modoPago">
+                <label>Efectivo</label>
+                <input type="checkbox" class="checkbox" formControlName="modoPago">
+              </div>
+            </div>
+          </div>
+
+          <div class="pagoFecha">
+
+            <div class="row">
+              <label>Abono:</label>
+              <input type="number"
+                formControlName="abono"
+                [class.invalid]="formulario.get('abono')?.invalid
+              && (formulario.get('abono')?.dirty
+              || formulario.get('abono')?.touched)"
+              [class.valid]="formulario.get('abono')?.valid
+              && (formulario.get('abono')?.dirty
+              || formulario.get('abono')?.touched)">
+            </div>
+
+            <div class="row">
+              <label>Saldo:</label>
+              <input type="number"
+                formControlName="saldo"
+                [class.invalid]="formulario.get('saldo')?.invalid
+                && (formulario.get('saldo')?.dirty
+                || formulario.get('saldo')?.touched)"
+                [class.valid]="formulario.get('saldo')?.valid
+                && (formulario.get('saldo')?.dirty
+                || formulario.get('saldo')?.touched)">
+            </div>
+
+            <div class="row">
+              <label>Valor Total:</label>
+              <input type="number"
+                formControlName="valorTotal"
+                [class.invalid]="formulario.get('valorTotal')?.invalid
+                && (formulario.get('valorTotal')?.dirty
+                || formulario.get('valorTotal')?.touched)"
+                [class.valid]="formulario.get('valorTotal')?.valid
+                && (formulario.get('valorTotal')?.dirty
+                || formulario.get('valorTotal')?.touched)">
+            </div>
+
+            <div class="fechaEntrega">
+              <label>FECHA DE ENTREGA</label>
+              <input type="date"
+                formControlName="fechaEntrega"
+                [class.invalid]="formulario.get('fechaEntrega')?.invalid
+                && (formulario.get('fechaEntrega')?.dirty
+                || formulario.get('fechaEntrega')?.touched)"
+                [class.valid]="formulario.get('fechaEntrega')?.valid
+                && (formulario.get('fechaEntrega')?.dirty
+                || formulario.get('fechaEntrega')?.touched)">
+            </div>
+
+          </div>
+
+
+
+        </div>
+        <button type="submit" class="botonGuardar" [disabled]="!formulario.valid">Guardar</button>
+      </div>
     </div>
-  </div>
+  </form>
 </body>
 </html>

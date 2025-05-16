@@ -3,6 +3,7 @@
     width: 80%;
     margin: auto;
     box-sizing: border-box;
+    padding-bottom: 10px;
 }
 
 .header{
@@ -75,7 +76,6 @@
 
 label{
     margin: auto;
-
 }
 
 .row{
@@ -182,8 +182,16 @@ input{
     flex-direction: column;
 }
 
-.grid{
-    display: grid;
+.botonGuardar{
+    width: 100%;
+}
+
+.invalid{
+    border: 1px red solid;
+}
+
+.valid{
+    border: 1px green solid;
 }
 
 @media screen and (max-width: 1000px){
