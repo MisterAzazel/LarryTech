@@ -1,1 +1,313 @@
-<p>formulario works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LarryTech</title>
+</head>
+<body>
+  <form action="" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="ficha">
+      <div class="header">
+        <div class="header1">
+          <img src="assets/LarryTechLogo.png" class="logo" alt="">
+
+          <div class="informacion">
+            <h3>REPARACION NOTEBOOKS Y PC</h3>
+            <p>Venta y suministros, actualización.</p>
+            <p>Cambio de hardware, mantenimiento.</p>
+            <p>Respaldo archivos, formateos, antivirus</p>
+          </div>
+
+
+          <div class="ubicacion">
+            <p>SAN DIEGO 344 - SANTIAGO CENTRO</p>
+            <p>PLACER 663 - PASILLO 1- LOCAL 23 - SANTIAGO</p>
+          </div>
+
+          <div class="contacto">
+            <p>Larry Tejada Raymi</p>
+
+            <div class="telefono">
+              <img src="assets/WhatsApp_icon.png" alt="">
+              <p>+56 9 6142 7290</p>
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="header2">
+          <h1>ORDEN SERVICIO TÉCNICO</h1>
+
+          <br>
+          <br>
+
+          <div class="orden">
+            <label for="">N° Orden</label>
+            <div class="campo">
+              <input type="number"
+              formControlName="numeroOrden"
+              [ngClass]="validarCampo('numeroOrden')">
+              <small class="error" *ngIf="validarError('numeroOrden')">Este campo es obligatorio, se permiten solamente números</small>
+            </div>
+
+          </div>
+
+
+          <br>
+          <br>
+
+          <div class="fechaRecepcion">
+            <label>FECHA DE RECEPCIÓN</label>
+            <div class="campo">
+              <input type="date"
+              class="inputDate"
+              formControlName="fechaRecepcion"
+              [ngClass]="validarCampo('fechaRecepcion')">
+              <small class="error" *ngIf="validarError('fechaRecepcion')">Este campo es obligatorio</small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <br>
+
+      <div class="fichaBody">
+
+        <div class="grid2">
+          <div class="campo">
+            <label>Cliente:</label>
+            <div class="inputError">
+              <input type="text"
+                class="inputCliente"
+                formControlName="cliente"
+                [ngClass]="validarCampo('cliente')">
+              <small class="error" *ngIf="validarError('cliente')">Este campo es obligatorio, no se permiten números</small>
+            </div>
+
+          </div>
+          <div class="campo">
+            <label>R.U.T:</label>
+            <div class="inputError">
+              <input type="text"
+              class="inputRut"
+              formControlName="rut"
+              [ngClass]="validarCampo('rut')">
+              <small class="error" *ngIf="validarError('rut')">Campo obligatorio</small>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="grid4" >
+          <div class="campo">
+            <label>Tel.:</label>
+            <div class="inputError">
+              <input type="text"
+              class="inputTel"
+              formControlName="telefono"
+              [ngClass]="validarCampo('telefono')">
+              <small class="error" *ngIf="validarError('telefono')">Campo obligatorio</small>
+            </div>
+          </div>
+
+          <div class="campo" formGroupName="equipo">
+            <label>PC:</label>
+            <input type="checkbox" class="checkbox" value="PC" formControlName="equipoPc">
+            <label>Notebook:</label>
+            <input type="checkbox" class="checkbox" value="Notebook" formControlName="equipoNotebook">
+            <label>Impresora:</label>
+            <input type="checkbox" class="checkbox" value="Impresora" formControlName="equipoImpresora">
+            <div *ngIf="formulario.get('equipo')?.hasError('sinEquipos') && formulario.get('equipo')?.touched"
+                style="grid-column: 1 / 7; text-align: end;" >
+              <small class="error">Debes seleccionar al menos un equipo</small>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="grid3">
+          <div class="campo">
+            <label>Marca:</label>
+            <div class="inputError">
+              <input type="text"
+              class="inputMarca"
+              formControlName="marca"
+              [ngClass]="validarCampo('marca')">
+              <small  class="error" *ngIf="validarError('marca')">Campo obligatorio</small>
+            </div>
+
+          </div>
+
+          <div class="campo">
+            <label>Modelo:</label>
+            <div class="inputError">
+              <input type="text"
+              class="inputModelo"
+              formControlName="modelo"
+              [ngClass]="validarCampo('modelo')">
+              <small class="error" *ngIf="validarError('modelo')">Campo obligatorio</small>
+            </div>
+
+          </div>
+
+          <div class="campo">
+            <label>N° de Serie:</label>
+            <div class="inputError">
+              <input type="number"
+              class="inputSerie"
+              formControlName="numeroSerie"
+              [ngClass]="validarCampo('numeroSerie')">
+              <small class="error" *ngIf="validarError('numeroSerie')">Campo obligatorio</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <label>Desperfeccion según cliente:</label>
+          <div class="inputError">
+            <input type="text"
+            class="inputDesperfeccion"
+            formControlName="desperfeccion"
+            [ngClass]="validarCampo('desperfeccion')">
+            <small class="error" *ngIf="validarError('desperfeccion')">Campo obligatorio</small>
+          </div>
+        </div>
+
+        <div class="grid">
+          <label>Diagnóstico:</label>
+          <div class="inputError">
+            <input type="text"
+            class="inputDiagnostico"
+            formControlName="diagnostico"
+            [ngClass]="validarCampo('diagnostico')">
+            <small class="error" *ngIf="validarError('diagnostico')">Campo obligatorio</small>
+          </div>
+
+        </div>
+
+        <div class="informacionServicio">
+          <p>El Servicio Técnico informa que a constar de los 60 días posterior
+            a la fecha de entrega pactada, se comienza a cobrar un costo adicional por bodegaje de $1.000 diarios.
+            <br>
+            El Servicio Técnico no se hace responsable por equipos no retirados posterior a 1 año de la fecha de entrega pactada.
+            <br>
+            La fecha de entrega será siempre no superior a 15 dias hábiles.
+          </p>
+        </div>
+
+        <!-- <div class="claveMarcas">
+          <div class="gridMarcas1 gridMarcas1Mobile">
+            <div class="claveDiv">
+              <input type="text" class="clave">
+              <label for="" class="labelClave">Clave</label>
+            </div>
+            <div class="imagenMarcasDiv">
+              <img src="assets/dell.png" class="imgMarca" alt="">
+              <img src="assets/acer.png" class="imgMarca" alt="">
+              <img src="assets/lenovo.png" class="imgMarca" alt="">
+            </div>
+          </div>
+          <div class="gridMarcas2">
+            <div class="imagenMarcasDiv">
+              <img src="assets/asus.png" class="imgMarca" alt="">
+              <img src="assets/samsung.png" class="imgMarca" alt="">
+              <img src="assets/toshiba.png" class="imgMarca" alt="">
+              <img src="assets/hp.png" class="imgMarca" alt="">
+              <img src="assets/epson.png" class="imgMarca" alt="">
+            </div>
+          </div>
+        </div> -->
+
+        <hr>
+
+        <div class="pagos">
+
+          <div class="modoPago" formGroupName="modoPago">
+            <h4>Modo de Pago:</h4>
+
+            <div class="modoPagoCheckbox">
+              <div class="grid2 grid2mobile" >
+                <label>Red Compra</label>
+                <input type="checkbox" class="checkbox" formControlName="redCompra">
+                <label>Master Card</label>
+                <input type="checkbox" class="checkbox" formControlName="masterCard">
+              </div>
+
+              <div class="grid2 grid2mobile">
+                <label>Visa</label>
+                <input type="checkbox" class="checkbox" formControlName="visa">
+                <label>Efectivo</label>
+                <input type="checkbox" class="checkbox" formControlName="efectivo">
+              </div>
+              <div *ngIf="formulario.get('modoPago')?.hasError('sinPago') && formulario.get('modoPago')?.touched">
+                <small class="error">Debes seleccionar al menos un modo de pago</small>
+              </div>
+            </div>
+            <div class="firmaDiv">
+              <label for="">Firma Cliente:</label>
+              <p>_______________________</p>
+            </div>
+          </div>
+
+          <div class="pagoFecha">
+            <div class="grid">
+              <label>Abono:</label>
+              <div class="inputError">
+                <input type="number"
+                formControlName="abono"
+                [ngClass]="validarCampo('abono')">
+                <small class="error" *ngIf="validarError('abono')">Campo obligatorio</small>
+              </div>
+
+            </div>
+
+            <div class="grid">
+              <label>Saldo:</label>
+              <div class="inputError">
+                <input type="number"
+                formControlName="saldo"
+                [ngClass]="validarCampo('saldo')">
+                <small class="error" *ngIf="validarError('saldo')">Campo obligatorio</small>
+              </div>
+            </div>
+
+            <div class="grid">
+              <label>Valor Total:</label>
+              <div class="inputError">
+                <input type="number"
+                formControlName="valorTotal"
+                [ngClass]="validarCampo('valorTotal')">
+                <small class="error" *ngIf="validarError('valorTotal')">Campo obligatorio</small>
+              </div>
+            </div>
+
+            <div class="fechaEntrega">
+              <label>FECHA DE ENTREGA</label>
+              <div class="inputError">
+                <input type="date"
+                formControlName="fechaEntrega"
+                [ngClass]="validarCampo('fechaEntrega')">
+                <small class="error" *ngIf="validarError('fechaEntrega')">Campo obligatorio</small>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+        <button type="submit" class="botonGuardar" [disabled]="!formulario.valid">Guardar</button>
+      </div>
+    </div>
+  </form>
+
+
+</body>
+</html>

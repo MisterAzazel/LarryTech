@@ -84,6 +84,35 @@ label{
     margin-bottom: 15px;
 }
 
+.campo{
+    display: contents;
+}
+
+.inputError{
+    display: flex;
+    flex-direction: column;
+}
+
+.claveDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.claveDiv label{
+    margin: 0;
+    text-align: center;
+}
+
+.imgMarca{
+    width: 90px;
+    height: 60px;
+}
+
+.error{
+    color: red;
+    font-size: 16px;
+}
+
 .grid{
     display: grid;
     grid-template-columns: 90px 1fr;
@@ -116,6 +145,24 @@ label{
     gap: 0.5rem;
 }
 
+.gridMarcas1{
+    display: grid;
+    grid-template-columns: 1fr 0.3fr 0.3fr 0.3fr;
+    gap: 2rem;
+    margin-bottom: 5px;
+}
+
+.gridMarcas2{
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+    gap: 1rem;
+}
+
+
+.imagenMarcasDiv{
+    display: contents;
+}
+
 .row label{
     margin-right: 5px;
 }
@@ -123,38 +170,6 @@ label{
 .row input{
     margin-right: 20px;
 }
-
-/* .inputCliente{
-    width: 59%;
-}
-
-.inputRut{
-    width: 20%;
-} */
-
-/* .inputTel{
-    width: 70%;
-}
-
-.inputMarca{
-    width: 15%;
-}
-
-.inputModelo{
-    width: 20%;
-}
-
-.inputSerie{
-    width: 25%;
-}
-
-.inputDesperfeccion{
-    width: 70%;
-}
-
-.inputDiagnostico{
-    width: 83%;
-} */
 
 .checkbox{
     width: 2rem;
@@ -235,5 +250,15 @@ input{
 
     .pagoFecha{
         justify-items: center;
+    }
+
+    .gridMarcas1{
+        gap: 0.4rem;
+    }
+
+
+    .imgMarca{
+        width: 40px;
+        height: 25px;
     }
 }
