@@ -14,10 +14,10 @@
                     <th>Cliente</th>
                     <th>Rut</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>carlo</td>
-                    <td>23</td>
+                <tr *ngFor="let doc of documentos$ | async">
+                    <td>{{doc.numeroOrden}}</td>
+                    <td>{{doc.cliente}}</td>
+                    <td>{{doc.rut}}</td>
                 </tr>
             </table>
         </div>

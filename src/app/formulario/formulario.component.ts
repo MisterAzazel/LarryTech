@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
-
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
+constructor(private firestore: Firestore) {}
+
 title = 'LarryTech';
   isSubmited = false;
   formulario = new FormGroup({
@@ -38,8 +40,20 @@ title = 'LarryTech';
   });
 
 
-  onSubmit() {
-    console.warn(this.formulario.value)
+  async onSubmit() {
+  if (this.formulario.valid) {
+      try {
+        const coleccion = collection(this.firestore, 'fichas');
+        await addDoc(coleccion, this.formulario.value);
+        console.log('Ficha guardada correctamente');
+        this.formulario.reset();
+      } catch (error) {
+        console.error('Error al guardar la ficha:', error);
+      }
+    } else {
+      console.warn('Formulario inválido');
+      this.formulario.markAllAsTouched();
+    }
   }
 
   validarEquipo(): ValidatorFn{
